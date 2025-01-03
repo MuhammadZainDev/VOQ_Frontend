@@ -1,0 +1,44 @@
+<!-- src/app/signup/signup.component.html -->
+
+<h2>Signup</h2>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Name:</label>
+    <input type="text" formControlName="name" />
+    <div *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched">
+      Name is required.
+    </div>
+  </div>
+
+  <div>
+    <label>Email:</label>
+    <input type="email" formControlName="email" />
+    <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+      Enter a valid email.
+    </div>
+  </div>
+
+  <div>
+    <label>Number:</label>
+    <input type="text" formControlName="number" />
+    <div *ngIf="signupForm.get('number')?.invalid && signupForm.get('number')?.touched">
+      Number is required.
+    </div>
+  </div>
+
+  <div>
+    <label>Password:</label>
+    <input type="password" formControlName="password" />
+    <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+      Password must be at least 6 characters.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="signupForm.invalid">Signup</button>
+</form>
+
+<div *ngIf="errorMessage" style="color:red;">
+  {{ errorMessage }}
+</div>
+
+<p>Already have an account? <a routerLink="/login">Login here</a></p>
