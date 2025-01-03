@@ -10,7 +10,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private authUrl = 'http://localhost:5000/api/auth';
+  private authUrl = 'https://voq-backend.vercel.app/api/auth';
   private loggedIn = new BehaviorSubject<boolean>(false);
   private userRole: string = '';
 
